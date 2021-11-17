@@ -31,6 +31,8 @@ class MainActivity :BaseActivity() {
 
 //            서버에서 이메일 / 비번이 맞는 계정인지? 로그인 요청
 
+            ServerUtil.postRequestLogin(inputEmail, inputPw)
+
 
 
         }

@@ -2,7 +2,9 @@ package org.techtown.colosseum
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import androidx.databinding.DataBindingUtil
+import org.json.JSONObject
 import org.techtown.colosseum.databinding.ActivityMainBinding
 
 class MainActivity :BaseActivity() {
@@ -31,7 +33,18 @@ class MainActivity :BaseActivity() {
 
 //            서버에서 이메일 / 비번이 맞는 계정인지? 로그인 요청
 
-            ServerUtil.postRequestLogin(inputEmail, inputPw)
+            ServerUtil.postRequestLogin(inputEmail, inputPw, object : ServerUtil.JsonResponseHandler {
+
+                override fun onResponse(jsonObj: JSONObject) {
+//                    로그인 API를 호출하고 돌아온 상황
+//                    결과로 jsonObj 하나를 받아서 돌아온 상황
+
+                    Log.d("화면에서의 jsonObj",jsonObj.toString())
+                }
+
+
+
+            })
 
 
 

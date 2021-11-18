@@ -1,4 +1,4 @@
-package org.techtown.colosseum
+package org.techtown.utils
 
 import android.util.Log
 import okhttp3.*
@@ -33,7 +33,7 @@ class ServerUtil {
         fun postRequestLogin(email : String, pw :String, handler: JsonResponseHandler? ){
 
 //            1. 어디로 가야? URL
-            val urlString = "${HOST_URL}/user"
+            val urlString = "$HOST_URL/user"
 
 //            2. 어떤 데이터를 들고가는가? (파라미터)
             val formData = FormBody.Builder()

@@ -1,12 +1,13 @@
 package org.techtown.colosseum
 
-import androidx.appcompat.app.AppCompatActivity
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import org.json.JSONObject
 import org.techtown.colosseum.databinding.ActivityMainBinding
+import org.techtown.utils.ServerUtil
 
 class MainActivity : BaseActivity() {
 
@@ -25,6 +26,12 @@ class MainActivity : BaseActivity() {
 
     override fun setupEvents() {
 
+        binding.btnSignUp.setOnClickListener {
+
+            val myIntent = Intent(mContext, SignUpActivity::class.java)
+            startActivity(myIntent)
+
+        }
         binding.btnLogin.setOnClickListener {
 
             val inputEmail = binding.edtEmail.text.toString()
@@ -55,25 +62,24 @@ class MainActivity : BaseActivity() {
                             if (code == 200) {
                                 Toast.makeText(mContext, "로그인 성공", Toast.LENGTH_SHORT).show()
 
-                            }
-                            else {
+                            } else {
                                 Toast.makeText(mContext, "로그인 실패", Toast.LENGTH_SHORT).show()
 
-                                }
                             }
-                            }
-
-                        })
-
-
+                        }
                     }
 
-
-                }
-
-                        override fun setValues() {
-
-                }
+                })
 
 
         }
+
+
+    }
+
+    override fun setValues() {
+
+    }
+
+
+}
